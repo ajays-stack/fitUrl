@@ -25,4 +25,7 @@ const authUser = (req, res, next) => {
   }
 };
 
+function isAuthenticated(req, res, next) {
+  if (req.user) {
+    next();}}
 export default authUser;
