@@ -1,0 +1,26 @@
+@import "tailwindcss";
+* {
+  
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+ 
+
+html, body {
+
+
+background-color: black;
+color:lightgray;
+}
+.hr-dash-long {
+  border: px dashed transparent;
+  border-radius: 10px;
+  border-image: repeating-linear-gradient(
+    to right,
+    lightgray 30px 40px,       /* dash length = 40px */
+    transparent 40px 60px  /* gap = 20px */
+  );
+  border-image-slice: 1;
+}
