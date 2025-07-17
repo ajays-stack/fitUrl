@@ -4,15 +4,22 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useContext } from 'react';
 import { urlcontext } from '../context/context';
+import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 const Search = () => {
   const [url,setUrl]=useState("");
-  const {search,setSearch}=useContext(urlcontext)
+  const {search,setSearch,token,setToken}=useContext(urlcontext)
+  const navigate=useNavigate()
 
 const submitHandler=async(e)=>{
   e.preventDefault();
-  try{
-    const response=await axios.post(import.meta.env.VITE_BACKEND_URL+'/url/short',{url,user:"singhajay9968@gmail.com"});
+  if(!token){
+navigate('/login');
+  }
+  else{ try{
+    const response=await axios.post(import.meta.env.VITE_BACKEND_URL+'/url/short',{url},{ headers: {
+            Authorization: `Bearer ${token}`
+          }});
     if(response.data.success==true){
       setSearch(!search);
         setUrl("")
@@ -26,7 +33,8 @@ catch(error){
   toast.error("search error in search.jsx")
 
 
-}
+}}
+ 
 
 }
 

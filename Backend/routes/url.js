@@ -4,9 +4,9 @@ import getdata from "../controller/getdata.js";
 import express from 'express'
 import handleDelete from "../controller/handleDelete.js";
 const urlroute=express.Router();
-urlroute.post('/short',short);
-urlroute.get('/getdata',getdata)
-urlroute.post('/delete',handleDelete);
+urlroute.post('/short',authUser,short);
+urlroute.get('/getdata',authUser,getdata)
+urlroute.post('/delete',authUser,handleDelete);
 urlroute.get('/:id',getredirect);
 
 

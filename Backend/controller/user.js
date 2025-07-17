@@ -24,7 +24,7 @@ const registerUser = async (req, res) => {
     if (result) {
       // Always sign an object as payload, not raw email
       const token = jwt.sign({ email }, process.env.SECRET_KEY, { expiresIn: '1d' });
-      console.log(token)
+ 
 
       return res.status(201).send({ success: true, token });
     } else {
@@ -53,7 +53,7 @@ const loginUser = async (req, res) => {
     }
 
     const token = jwt.sign({ email }, process.env.SECRET_KEY, { expiresIn: '1d' });
-console.log(token)
+
     return res.send({ success: true, token });
   } catch (error) {
     console.error("Login Error:", error.message);

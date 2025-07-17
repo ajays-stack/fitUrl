@@ -1,7 +1,8 @@
 import { nanoid } from "nanoid";
 import Url from "../model/url.js";
 const short = async (req, res) => {
-  const { url, user } = req.body;
+  const { url } = req.body;
+  const user=req.user;
 
   try {
     //we are checking if the url is already present then give response to user
@@ -44,9 +45,11 @@ const getredirect = async (req, res) => {
       return res.status(404).send("URL not found");
     }
 
-    const url = info.redirectUrl;
+ const url = info.redirectUrl.trim();
+
 
     // Add protocol if missing
+   
     if (url.startsWith("https://") || url.startsWith("http://")) {
       return res.redirect(url);
     } else {

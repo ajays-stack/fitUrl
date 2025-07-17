@@ -1,7 +1,7 @@
 import Url from "../model/url.js";
 
 const getdata = async (req, res) => {
-  const { user } = req.query;
+  const user = req.user
 
 
   try {

@@ -16,7 +16,9 @@ const authUser = (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.SECRET_KEY); //  Verify token
 
-    req.email = decoded.email; //  Save email from decoded token
+    const email = decoded.email; //  Save email from decoded token
+   
+    req.user=email
     next(); //  Go to next middleware or route
   } catch (error) {
     return res.status(401).json({ success: false, message: "Invalid or expired token" });

@@ -16,7 +16,7 @@ const navigate=useNavigate();
  const onSubmitHandler=async (e)=>{
 
     e.preventDefault();
-   console.log("hello")
+  
     if(currentState=='Sign Up'){
         try{ 
             const response=await axios.post(import.meta.env.VITE_BACKEND_URL+'/user/register',{name,email,password});
