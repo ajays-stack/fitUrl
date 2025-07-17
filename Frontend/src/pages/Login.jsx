@@ -3,9 +3,13 @@ import { useContext } from 'react';
 import { urlcontext } from '../context/context';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from 'axios';
 
 const Login = () => {
+    // Add this state at the top
+const [showPassword, setShowPassword] = useState(false);
+
     const {token,setToken}=useContext(urlcontext);
  const [currentState,setCurrentState]=useState('Sign Up');
 const [name,setName]=useState("")
@@ -63,7 +67,7 @@ const navigate=useNavigate();
  }
 
   return (
-    <form onSubmit={onSubmitHandler} className=' text-white flex flex-col items-center  w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800'>
+    <form onSubmit={onSubmitHandler} className=' text-white flex flex-col items-center  w-[90%] sm:max-w-96 m-auto mt-14 gap-4 '>
       <div className='inline-flex items-center gap-2 mb-2 mt-10'>
         <p className='prata-regular text-3xl'>{currentState}</p>
         <hr className='border-none h-[1.5px] w-8 bg-gray-800'></hr>
@@ -71,7 +75,23 @@ const navigate=useNavigate();
 
       {currentState==='Login'? '':<input onChange={(e)=>{setName(e.target.value)}} value={name} type='text' className='text-white w-full px-3 py-2 border border-gray-800' placeholder='Name' required/>}
       <input  onChange={ (e)=>{setEmail(e.target.value)}} value={email} type='email' className=' text-white w-full px-3 py-2 border border-gray-800' placeholder='Email' required/>
-      <input onChange={(e)=>{setPassword(e.target.value)}} value={password} type='password' className='text-white w-full px-3 py-2 border border-gray-800' placeholder='Password' required/> 
+<div className="relative w-full">
+  <input
+    onChange={(e) => setPassword(e.target.value)}
+    value={password}
+    type={showPassword ? 'text' : 'password'}
+    className="text-white w-full px-3 py-2 border border-gray-800 pr-10 bg-transparent"
+    placeholder="Password"
+    required
+  />
+  <div
+    className="absolute top-1/2 right-3 transform -translate-y-1/2 text-white cursor-pointer"
+    onClick={() => setShowPassword(!showPassword)}
+  >
+    {showPassword ? <FaEyeSlash /> : <FaEye />}
+  </div>
+</div>
+
      <div className='w-full flex justify-between text-sm mt-[-8px]'>
       <p className='cursor-pointer '>Forgot your Password</p>
       {
