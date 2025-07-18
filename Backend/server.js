@@ -6,7 +6,9 @@ import cors from 'cors'
 import userRouter from './routes/user.js';
 const app=express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin:process.env.FRONTEND_URL
+}));
 dotenv.config();
 
 app.use('/url',urlroute)
