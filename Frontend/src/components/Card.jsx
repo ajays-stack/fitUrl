@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { urlcontext } from "../context/context";
+import { urlcontext } from "../context/Context";
 import { toast } from "react-toastify";
 import { TbCopy } from "react-icons/tb";
 import { MdDeleteForever } from "react-icons/md";

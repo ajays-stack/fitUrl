@@ -3,7 +3,7 @@ import { BsArrowsAngleContract } from "react-icons/bs";
 import { useState } from 'react';
 import axios from 'axios';
 import { useContext } from 'react';
-import { urlcontext } from '../context/context';
+import { urlcontext } from '../context/Context';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 const Search = () => {

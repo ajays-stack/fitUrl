@@ -4,7 +4,7 @@ import Search from "../components/Search";
 import Description from "../components/Description";
 import Card from "../components/Card";
 import { useContext } from "react";
-import { urlcontext } from "../context/context";
+import { urlcontext } from "../context/Context";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 

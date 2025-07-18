@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useContext } from 'react';
-import { urlcontext } from '../context/context';
+import { urlcontext } from '../context/Context';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
