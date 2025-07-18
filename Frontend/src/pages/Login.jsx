@@ -9,7 +9,7 @@ import axios from 'axios';
 const Login = () => {
     // Add this state at the top
 const [showPassword, setShowPassword] = useState(false);
-console.log("hello")
+
 
     const {token,setToken}=useContext(urlcontext);
  const [currentState,setCurrentState]=useState('Sign Up');
