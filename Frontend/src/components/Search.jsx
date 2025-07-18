@@ -23,6 +23,11 @@ navigate('/login');
     if(response.data.success==true){
       setSearch(!search);
         setUrl("")
+        window.scrollBy({
+  top: 1200,             // number of pixels to scroll down
+  behavior: 'smooth'    // for smooth scrolling animation
+});
+
     }
     if(response.data.success=="alreadypresent"){
       toast.error("already present")

@@ -25,7 +25,7 @@ const navigate=useNavigate();
         try{ 
             const response=await axios.post(import.meta.env.VITE_BACKEND_URL+'/user/register',{name,email,password});
             const restoken=response.data.token
-            if(response.data.success){
+            if(response.data.success==true){
                 localStorage.setItem('token',restoken);
                 setToken(restoken);
                 toast.success("registered successfully")
@@ -37,32 +37,38 @@ const navigate=useNavigate();
             }
             else{
                 toast.error("user not created")
+              
             }
         } 
         catch(error){
             console.log(error.message)
         }
     }
-    if(currentState=='Login'){
-         try{ 
-            const response=await axios.post(import.meta.env.VITE_BACKEND_URL+'/user/login',{email,password});
-            const restoken=response.data.token
-            if(response.data.success){
-                localStorage.setItem('token',restoken);
-                setToken(restoken);
-                toast.success("LoggedIn successfully")
-                navigate('/')
-            }
-       
-            else if(!response.data.success){
-                toast.error(response.data.message);
-            }
-        } 
-        catch(error){
-            console.log(error.message)
-        }
-    }
+
+
+   if (currentState === 'Login') {
+  try {
    
+    const response = await axios.post(import.meta.env.VITE_BACKEND_URL + '/user/login', {
+      email,
+      password
+    });
+
+    if (response.data.success) {
+      const restoken = response.data.token; // only access if success
+      localStorage.setItem('token', restoken);
+      setToken(restoken);
+      toast.success("Logged in successfully");
+      navigate('/');
+    } 
+
+  } catch (error) {
+    toast.error(error.response.data.message);
+    
+     // fallback in case of server/network error
+  }
+}
+
 
  }
 
@@ -100,7 +106,7 @@ const navigate=useNavigate();
         :<p onClick={()=>setCurrentState('Login')} className='cursor-pointer'>Login Here</p>
       }
      </div>
-     <button className='bg-black text-white font-light px-8 py-2 mt-4' type='submit'>{currentState=='Login'?'Login':'Sign Up'}</button>
+     <button className='bg-gray-700 rounded-xl  text-white font-light px-8 py-2 mt-4' type='submit'>{currentState=='Login'?'Login':'Sign Up'}</button>
 
     </form>
   )
