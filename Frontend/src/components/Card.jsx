@@ -113,7 +113,7 @@ const Card = () => {
                   <div className="flex gap-2 items-center justify-center">
                   <button
                     onClick={() =>
-                      handleShare(`http://localhost:4000/url/${item.shortId}`)
+                      handleShare(`${import.meta.VITE_BACKEND_URL}${item.shortId}`)
                     }
                   >
                    <IoShareSocial />
@@ -126,7 +126,7 @@ const Card = () => {
                 </div>
                 <div className="flex flex-col md:flex-row mt-2 md:mt-0 justify-between  gap-2">
                   <p className="truncate max-w-[60%] text-blue-700 underline">
-                    {`http://localhost:4000/url/${item.shortId}`}
+                    {`${import.meta.env.VITE_BACKEND_URL}${item.shortId}`}
                   </p>
 
                   <div className="flex items-center gap-2">
@@ -136,7 +136,7 @@ const Card = () => {
                     <button
                       className="text-gray-600 p-1 rounded hover:bg-blue-600 hover:text-white transition"
                       onClick={() =>
-                        handleCopy(`http://localhost:4000/url/${item.shortId}`)
+                        handleCopy(`${import.meta.VITE_BACKEND_URL}${item.shortId}`)
                       }
                     >
                       <TbCopy size={20} />
