@@ -52,7 +52,7 @@ const Home = () => {
         <div className="my-10 flex justify-center flex-col items-center w-full gap-4">
           <h1 className="flex items-center justify-center gap-4">
             <FaLink className="inline h-[20px] w-[20px] md:h-[40px] md:w-[40px]" />
-            <span className="text-3xl md:text-5xl pb-4">ShortLink</span>
+            <span className="text-3xl md:text-5xl pb-4">FIT-URL</span>
           </h1>
           <p className="text-gray-200 text-xs sm:text-sm md:text-2xl">
             Transform your long URLs into short, shareable links in seconds
