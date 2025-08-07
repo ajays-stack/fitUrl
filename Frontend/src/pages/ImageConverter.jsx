@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Description from '../components/Description';
-import Upload from './upload';
+import Upload from './Upload'
 import ImageCard from '../components/ImageCards';
 const ImageConverter = () => {
   const [image, setImage] = useState('');
