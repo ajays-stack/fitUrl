@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 const Urlschema= new mongoose.Schema({
+    
     shortId:{
         type:String,
         required:true,

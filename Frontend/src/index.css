@@ -9,10 +9,12 @@
 }
 
 /* Base layout styling */
-html,
-body {
+html,body {
   background-color: black;
   color: lightgray;
+  min-height: 100vh;
+  padding: 0;
+margin: 0;
 }
 
 /* Custom dashed border */
@@ -25,4 +27,35 @@ body {
     transparent 40px 60px     /* gap from 40px to 60px */
   );
   border-image-slice: 1;
+}
+
+
+.button{
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  0%{
+    transform: scale(1.0);
+  }
+  100%{
+    transform:scale(1.05);
+  }
+  
+}
+
+.glowing-button {
+  background-color: #6200ea;
+ 
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #6200ea, 0 0 15px #6200ea, 0 0 40px #6200ea;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.glowing-button:hover {
+  box-shadow: 0 0 10px #bb86fc, 0 0 40px #bb86fc, 0 0 80px #bb86fc;
 }

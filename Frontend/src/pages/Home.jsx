@@ -8,11 +8,13 @@ import { urlcontext } from "../context/Context";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import Imagetourl from "./Imagetourl";
+
 const Home = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { token } = useContext(urlcontext);
   return (
-    <div>
+    <div  className="h-full">
       {/* User Icon & Dropdown */}
       <div className="absolute top-4 right-4 z-50">
         <div
@@ -49,18 +51,8 @@ const Home = () => {
 
       {/* Main Content */}
       <div className="flex items-center justify-center flex-col gap-10">
-        <div className="my-10 flex justify-center flex-col items-center w-full gap-4">
-          <h1 className="flex items-center justify-center gap-4">
-            <FaLink className="inline h-[20px] w-[20px] md:h-[40px] md:w-[40px]" />
-            <span className="text-3xl md:text-5xl pb-4">FIT-URL</span>
-          </h1>
-          <p className="text-gray-200 text-xs sm:text-sm md:text-2xl">
-            Transform your long URLs into short, shareable links in seconds
-          </p>
-          <hr className="border-t-2 border-dashed border-white my-4 w-full" />
-        </div>
-
         <Search />
+        <Imagetourl></Imagetourl>
         <Description />
         <hr className="border-t-2 border-dashed border-white my-4 w-full" />
         <Card />
