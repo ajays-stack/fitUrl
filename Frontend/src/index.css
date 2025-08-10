@@ -59,3 +59,22 @@ margin: 0;
 .glowing-button:hover {
   box-shadow: 0 0 10px #bb86fc, 0 0 40px #bb86fc, 0 0 80px #bb86fc;
 }
+
+
+.marquee {
+
+  color:white;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.marquee {
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}

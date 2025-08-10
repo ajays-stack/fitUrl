@@ -10,6 +10,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <ToastContainer />
+      <div className="bg-red-600 opacity-80 w-screen h-10 items-center flex ">
+      <div class="marquee">The project is under maintenance</div></div>
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
